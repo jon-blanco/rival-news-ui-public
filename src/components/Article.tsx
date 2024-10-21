@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Accordion, AccordionItem } from '@nextui-org/accordion';
-import { Avatar, Spacer, } from '@nextui-org/react';
+import { Avatar, Spacer } from '@nextui-org/react';
 import { Article as ArticleType } from '../api/fetchArticle';
 
 interface ArticleProps {
@@ -20,7 +20,9 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
           {article.publishedAt}
         </p>
         {/* Rendered HTML content with global styles */}
-        <p className="text-sm text-gray-500 dark:text-gray-400">{article.author?.name + " + AI | Rival News"}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {article.author?.name + ' + AI | Rival News'}
+        </p>
         <div
           className="rich-text"
           dangerouslySetInnerHTML={{ __html: article.articleContent }}
@@ -39,7 +41,7 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
                 src={article.author?.imgUrl}
               />
             }
-            subtitle={"by " + article.author?.name}
+            subtitle={'by ' + article.author?.name}
             title="Core Facts"
           >
             <div

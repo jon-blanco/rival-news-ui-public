@@ -22,12 +22,12 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 const dummyArticle: Article = {
   id: 1,
   headline:
-    "Hackers Compromise Personal Information of 31 Million Internet Archive Users",
+    'Hackers Compromise Personal Information of 31 Million Internet Archive Users',
   author: {
     id: 1,
-    name: "Allison Ing",
-    bio: "Allison Ing is the editor in chief at the New York Gazzelle, writing since 2002.",
-    imgUrl: "https://via.placeholder.com/150",
+    name: 'Allison Ing',
+    bio: 'Allison Ing is the editor in chief at the New York Gazzelle, writing since 2002.',
+    imgUrl: 'https://via.placeholder.com/150',
   },
   coreFactsContent: `
     <h1>Core Facts: Internet Archive Cyberattack</h1>
@@ -60,7 +60,7 @@ const dummyArticle: Article = {
     <p>The Internet Archive has not yet released further details about the breach or its impact on individual users, but Kahle emphasized that security remains the organization's top priority as it works to restore full functionality.</p>
 
   `,
-  publishedAt: "2021-10-01",
+  publishedAt: '2021-10-01',
 };
 
 export const fetchArticle = async (): Promise<Article> => {

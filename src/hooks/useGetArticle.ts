@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { fetchArticle, Article } from "../api/fetchArticle";
+import { useState, useEffect } from 'react';
+import { fetchArticle, Article } from '../api/fetchArticle';
 
 const useGetArticle = () => {
   const [article, setArticle] = useState<Article | null>(null);
@@ -12,7 +12,7 @@ const useGetArticle = () => {
         const fetchedArticle = await fetchArticle();
         setArticle(fetchedArticle);
       } catch (err) {
-        setError("Failed to fetch article:");
+        setError('Failed to fetch article:');
       } finally {
         setLoading(false);
       }
