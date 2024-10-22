@@ -8,7 +8,7 @@ import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyBJubyveosuEU3xVMtGKoq15nw6H8_Ua-0',
+  apiKey: 'AIzaSyBJubyveosuEU3xVMtGKoq15nw6H8_Ua-0', // does NOT need to be hidden
   authDomain: 'rival-news.firebaseapp.com',
   projectId: 'rival-news',
   storageBucket: 'rival-news.appspot.com',
