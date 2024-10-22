@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import NewsBanner from '../components/NewsBanner';
 import Footer from '../components/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -14,6 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         {children}
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

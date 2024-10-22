@@ -21,4 +21,4 @@ const ArticlePage: React.FC = () => {
   );
 };
 
-export default ArticlePage;
+export { ArticlePage };

@@ -1,14 +1,25 @@
 // import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ArticlePage from './pages/ArticlePage';
+import {
+  ArticlePage,
+  HomePage,
+  NotFoundPage,
+  PasswordlessEmailAuthPage,
+  PasswordlessEmailCallbackPage,
+} from './pages';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/article/:id" element={<ArticlePage />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/signin" element={<PasswordlessEmailAuthPage />} />
+        <Route
+          path="/finishSignUp"
+          element={<PasswordlessEmailCallbackPage />}
+        />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

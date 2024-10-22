@@ -1,13 +1,13 @@
 import React from 'react';
 import MainLayout from '../layouts/MainLayout';
-import PasswordlessEmailCallback from '../components/Auth/PasswordlessEmailCallback';
+import PasswordlessEmailAuth from '../components/Auth/PasswordlessEmailAuth';
 
-const PasswordlessEmailCallbackPage: React.FC = () => {
+const PasswordlessEmailAuthPage: React.FC = () => {
   return (
     <MainLayout>
-      <PasswordlessEmailCallback />
+      <PasswordlessEmailAuth />
     </MainLayout>
   );
 };
 
-export default PasswordlessEmailCallbackPage;
+export { PasswordlessEmailAuthPage };
