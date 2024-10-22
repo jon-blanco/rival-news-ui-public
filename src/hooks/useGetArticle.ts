@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchArticle, Article } from '../api/fetchArticle';
 
-const useGetArticle = () => {
+const useGetArticle = (articleId: string) => {
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

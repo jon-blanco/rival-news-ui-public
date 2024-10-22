@@ -13,13 +13,22 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} Rival News. All rights reserved.
           </p>
           <div className="flex space-x-4">
-            <a href="#!" className="text-sm text-gray-500 dark:text-gray-400 hover:underline">
+            <a
+              href="#!"
+              className="text-sm text-gray-500 dark:text-gray-400 hover:underline"
+            >
               Privacy Policy
             </a>
-            <a href="#!" className="text-sm text-gray-500 dark:text-gray-400 hover:underline">
+            <a
+              href="#!"
+              className="text-sm text-gray-500 dark:text-gray-400 hover:underline"
+            >
               Terms of Service
             </a>
-            <a href="#!" className="text-sm text-gray-500 dark:text-gray-400 hover:underline">
+            <a
+              href="#!"
+              className="text-sm text-gray-500 dark:text-gray-400 hover:underline"
+            >
               Contact Us
             </a>
           </div>

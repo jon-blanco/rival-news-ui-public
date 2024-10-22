@@ -6,7 +6,7 @@ function FullPageSpinner() {
     <div className="flex flex-col items-center justify-center min-h-screen ">
       <Spinner />
     </div>
-  )
+  );
 }
 
 export default FullPageSpinner;

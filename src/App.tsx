@@ -1,21 +1,16 @@
 // import React from 'react';
-import Article from './components/Article/Article';
-import Footer from './components/Footer';
-import NewsBanner from './components/NewsBanner';
-import useGetArticle from './hooks/useGetArticle';
-import FullPageSpinner from './components/FullPageSpinner';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ArticlePage from './pages/ArticlePage';
 
 function App() {
-  const { article, loading, error } = useGetArticle();
-
   return (
-    <div>
-      <NewsBanner />
-      {loading && <FullPageSpinner />}
-      {error && <p>{error}</p>}
-      {article && <Article article={article} />}
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/article/:id" element={<ArticlePage />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
+    </Router>
   );
 }
 
