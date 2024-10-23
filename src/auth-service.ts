@@ -2,7 +2,6 @@
 
 import { auth } from './firebase-config';
 import {
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
@@ -39,8 +38,9 @@ export const requestLoginEmail = async (
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      console.log(error);
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
       // ...
     });
 };
