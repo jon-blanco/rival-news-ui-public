@@ -12,7 +12,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <NewsBanner />
-      <div className="flex-grow flex justify-center items-center">
+      <div className={`flex-grow flex justify-center items-center`}>
         {children}
       </div>
       <Footer />

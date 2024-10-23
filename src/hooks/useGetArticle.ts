@@ -9,10 +9,10 @@ const useGetArticle = (articleId: string) => {
   useEffect(() => {
     const loadArticle = async () => {
       try {
-        const fetchedArticle = await fetchArticle();
+        const fetchedArticle = await fetchArticle(articleId);
         setArticle(fetchedArticle);
-      } catch (err) {
-        setError('Failed to fetch article:');
+      } catch (err: any) {
+        setError(err.message);
       } finally {
         setLoading(false);
       }
