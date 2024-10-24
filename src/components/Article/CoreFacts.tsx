@@ -4,8 +4,6 @@ import React from 'react';
 import { Accordion, AccordionItem } from '@nextui-org/accordion';
 import { Avatar, Divider, Spacer } from '@nextui-org/react';
 import { Article as ArticleType } from '../../api/fetchArticle';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faListCheck } from '@fortawesome/free-solid-svg-icons'; // Import the icon here
 
 interface ArticleProps {
   article: ArticleType;

@@ -12,6 +12,11 @@ module.exports = {
     'airbnb',
     'plugin:prettier/recommended',
   ],
+  ignores: [
+    'node_modules',
+    'build',
+    'dist'
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
