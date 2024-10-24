@@ -20,8 +20,6 @@ const NewsBanner: React.FC = () => {
     paddingLeft: '1rem',
   };
 
-  const marqueeText = 'rival ↗ ↘';
-
   return (
     <div style={bannerStyle}>
       <style>
@@ -36,16 +34,16 @@ const NewsBanner: React.FC = () => {
       {Array(15)
         .fill('')
         .map((_, key) => (
-          <span key={key} style={marqueeStyle} className="marquee">
-            {marqueeText}
-          </span>
+          <p key={key} style={marqueeStyle} className="marquee">
+            rival ↗&#xFE0E; ↘&#xFE0E;
+          </p>
         ))}
       {Array(15)
         .fill('')
         .map((_, key) => (
-          <span key={key} style={marqueeStyle} className="marquee">
-            {marqueeText}
-          </span>
+          <p key={key} style={marqueeStyle} className="marquee">
+            rival ↗&#xFE0E; ↘&#xFE0E;
+          </p>
         ))}
     </div>
   );
