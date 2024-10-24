@@ -8,7 +8,8 @@ const Footer: React.FC = () => {
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-4xl font-['Tektur'] py-10">rival ↗&#xFE0E; ↘&#xFE0E;</h2>
+          {/* <h2 className="text-4xl font-['Tektur'] py-10">rival ↗&#xFE0E; ↘&#xFE0E;</h2> */}
+          <img className="h-16 m-12" src="/rival-↗-↘.svg"/>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             &copy; {new Date().getFullYear()} Rival News. All rights reserved.
           </p>
