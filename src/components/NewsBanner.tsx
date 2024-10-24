@@ -14,7 +14,7 @@ const NewsBanner: React.FC = () => {
     whiteSpace: 'nowrap' as const,
     animation: 'marquee 10s linear infinite',
     fontFamily: "'Tektur', sans-serif",
-    height: "14px",
+    height: '14px',
     paddingLeft: '1rem',
     // padding: "1rem 0 1rem 1rem",
   };
@@ -33,12 +33,22 @@ const NewsBanner: React.FC = () => {
       {Array(15)
         .fill('')
         .map((_, key) => (
-          <img key={key} style={marqueeStyle} className="marquee" src="/rival-↗-↘.svg"/>
+          <img
+            key={key}
+            style={marqueeStyle}
+            className="marquee"
+            src="/rival-↗-↘.svg"
+          />
         ))}
       {Array(15)
         .fill('')
         .map((_, key) => (
-          <img key={key} style={marqueeStyle} className="marquee" src="/rival-↗-↘.svg"/>
+          <img
+            key={key}
+            style={marqueeStyle}
+            className="marquee"
+            src="/rival-↗-↘.svg"
+          />
         ))}
     </div>
   );
