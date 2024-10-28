@@ -1,0 +1,63 @@
+# # Example schema for simple movie review app
+
+# # Users
+type User @table {
+  id: String!
+  email: String!
+  username: String
+  isVerifiedJournalist: Boolean! @default(value: false)
+}
+
+enum StoryStatus {
+  DRAFT
+  PUBLISHED
+  DELETED
+}
+
+# Stories
+type Story @table {
+  status: StoryStatus!
+  publishedAt: Timestamp
+}
+
+type FactSet @table(name: "FactSets", key: ["story"]) {
+  story: Story!
+  coreFact: String!
+}
+
+type Article @table(name: "Articles", key: ["factSet"]) {
+  factSet: FactSet!
+  generatedContent: String!
+  reviewedContent: String
+  hasBeenReviewed: Boolean! @default(value: false)
+  isLive: Boolean! @default(value: false)
+}
+
+type ArticleComparison @table {
+  articleA: Article!
+  articleB: Article!
+  articleAUniqueShareCount: Int! @default(value: 0)
+  articleBUniqueShareCount: Int! @default(value: 0)
+  countThreshold: Int! @default(value: 25)
+}
+
+# # Movie Metadata
+# # Movie - MovieMetadata is a one-to-one relationship
+# type MovieMetadata @table {
+#   # @unique indicates a 1-1 relationship
+#   movie: Movie! @unique
+#   # movieId: UUID <- this is created by the above reference
+#   rating: Float
+#   releaseYear: Int
+#   description: String
+# }
+
+# # Reviews
+# type Review @table(name: "Reviews", key: ["movie", "user"]) {
+#   id: UUID! @default(expr: "uuidV4()")
+#   user: User!
+#   movie: Movie!
+#   rating: Int
+#   reviewText: String
+#   reviewDate: Date! @default(expr: "request.time")
+# }

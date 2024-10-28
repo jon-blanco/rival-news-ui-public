@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "@nextui-org/accordion": "^2.0.40",
     "@nextui-org/react": "^2.4.8",
     "@nextui-org/system": "^2.2.6",
