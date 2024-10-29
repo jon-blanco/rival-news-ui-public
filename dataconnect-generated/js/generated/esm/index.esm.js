@@ -6,6 +6,30 @@ export const connectorConfig = {
   location: 'us-central1'
 };
 
+export function listArticlesRef(dc) {
+  const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
+  if('_useGeneratedSdk' in dcInstance) {
+    dcInstance._useGeneratedSdk();
+  } else {
+    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
+  }
+  return queryRef(dcInstance, 'ListArticles');
+}
+export function listArticles(dc) {
+  return executeQuery(listArticlesRef(dc));
+}
+export function listStoriesRef(dc) {
+  const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
+  if('_useGeneratedSdk' in dcInstance) {
+    dcInstance._useGeneratedSdk();
+  } else {
+    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
+  }
+  return queryRef(dcInstance, 'ListStories');
+}
+export function listStories(dc) {
+  return executeQuery(listStoriesRef(dc));
+}
 export function insertStoryStatusRef(dcOrVars, vars) {
   const { dc: dcInstance, vars: inputVars} = validateArgs(connectorConfig, dcOrVars, vars, true);
   if('_useGeneratedSdk' in dcInstance) {
@@ -53,16 +77,4 @@ export function insertArticleRef(dcOrVars, vars) {
 }
 export function insertArticle(dcOrVars, vars) {
   return executeMutation(insertArticleRef(dcOrVars, vars));
-}
-export function listArticlesRef(dc) {
-  const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
-  if('_useGeneratedSdk' in dcInstance) {
-    dcInstance._useGeneratedSdk();
-  } else {
-    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
-  }
-  return queryRef(dcInstance, 'ListArticles');
-}
-export function listArticles(dc) {
-  return executeQuery(listArticlesRef(dc));
 }

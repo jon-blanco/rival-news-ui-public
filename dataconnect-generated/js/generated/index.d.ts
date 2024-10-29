@@ -82,6 +82,18 @@ export interface ListArticlesData {
   } & Article_Key)[];
 }
 
+export interface ListStoriesData {
+  stories: ({
+    id: UUIDString;
+    storyReferenceName: string;
+    status: {
+      id: UUIDString;
+      status: string;
+    } & StoryStatus_Key;
+      publishedAt?: TimestampString | null;
+  } & Story_Key)[];
+}
+
 export interface StoryStatus_Key {
   id: UUIDString;
   __typename?: 'StoryStatus_Key';
@@ -97,6 +109,22 @@ export interface User_Key {
   __typename?: 'User_Key';
 }
 
+
+
+/* Allow users to create refs without passing in DataConnect */
+export function listArticlesRef(): QueryRef<ListArticlesData, undefined>;/* Allow users to pass in custom DataConnect instances */
+export function listArticlesRef(dc: DataConnect): QueryRef<ListArticlesData,undefined>;
+
+export function listArticles(): QueryPromise<ListArticlesData, undefined>;
+export function listArticles(dc: DataConnect): QueryPromise<ListArticlesData,undefined>;
+
+
+/* Allow users to create refs without passing in DataConnect */
+export function listStoriesRef(): QueryRef<ListStoriesData, undefined>;/* Allow users to pass in custom DataConnect instances */
+export function listStoriesRef(dc: DataConnect): QueryRef<ListStoriesData,undefined>;
+
+export function listStories(): QueryPromise<ListStoriesData, undefined>;
+export function listStories(dc: DataConnect): QueryPromise<ListStoriesData,undefined>;
 
 
 /* Allow users to create refs without passing in DataConnect */
@@ -133,13 +161,5 @@ export function insertArticleRef(dc: DataConnect, vars: InsertArticleVariables):
 
 export function insertArticle(vars: InsertArticleVariables): MutationPromise<InsertArticleData, InsertArticleVariables>;
 export function insertArticle(dc: DataConnect, vars: InsertArticleVariables): MutationPromise<InsertArticleData,InsertArticleVariables>;
-
-
-/* Allow users to create refs without passing in DataConnect */
-export function listArticlesRef(): QueryRef<ListArticlesData, undefined>;/* Allow users to pass in custom DataConnect instances */
-export function listArticlesRef(dc: DataConnect): QueryRef<ListArticlesData,undefined>;
-
-export function listArticles(): QueryPromise<ListArticlesData, undefined>;
-export function listArticles(dc: DataConnect): QueryPromise<ListArticlesData,undefined>;
 
 

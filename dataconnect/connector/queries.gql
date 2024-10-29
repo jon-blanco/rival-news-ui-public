@@ -19,3 +19,15 @@ query ListArticles @auth(level: PUBLIC) {
     isLive
   }
 }
+
+query ListStories @auth(level: PUBLIC) {
+  stories {
+    id
+    storyReferenceName
+    status {
+      id
+      status
+    }
+    publishedAt
+  }
+}

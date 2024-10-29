@@ -7,6 +7,34 @@ const connectorConfig = {
 };
 exports.connectorConfig = connectorConfig;
 
+function listArticlesRef(dc) {
+  const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
+  if('_useGeneratedSdk' in dcInstance) {
+    dcInstance._useGeneratedSdk();
+  } else {
+    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
+  }
+  return queryRef(dcInstance, 'ListArticles');
+}
+exports.listArticlesRef = listArticlesRef;
+exports.listArticles = function listArticles(dc) {
+  return executeQuery(listArticlesRef(dc));
+};
+
+function listStoriesRef(dc) {
+  const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
+  if('_useGeneratedSdk' in dcInstance) {
+    dcInstance._useGeneratedSdk();
+  } else {
+    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
+  }
+  return queryRef(dcInstance, 'ListStories');
+}
+exports.listStoriesRef = listStoriesRef;
+exports.listStories = function listStories(dc) {
+  return executeQuery(listStoriesRef(dc));
+};
+
 function insertStoryStatusRef(dcOrVars, vars) {
   const { dc: dcInstance, vars: inputVars} = validateArgs(connectorConfig, dcOrVars, vars, true);
   if('_useGeneratedSdk' in dcInstance) {
@@ -61,19 +89,5 @@ function insertArticleRef(dcOrVars, vars) {
 exports.insertArticleRef = insertArticleRef;
 exports.insertArticle = function insertArticle(dcOrVars, vars) {
   return executeMutation(insertArticleRef(dcOrVars, vars));
-};
-
-function listArticlesRef(dc) {
-  const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
-  if('_useGeneratedSdk' in dcInstance) {
-    dcInstance._useGeneratedSdk();
-  } else {
-    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
-  }
-  return queryRef(dcInstance, 'ListArticles');
-}
-exports.listArticlesRef = listArticlesRef;
-exports.listArticles = function listArticles(dc) {
-  return executeQuery(listArticlesRef(dc));
 };
 
