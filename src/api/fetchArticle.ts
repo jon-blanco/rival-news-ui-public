@@ -1,7 +1,8 @@
-// src/api/mockApi.ts
-
 import { ArticleNotFoundError } from './_errors';
 import { mockArticleData } from './_mockArticleData';
+
+import { executeQuery } from 'firebase/data-connect';
+import { listStoriesRef } from '@rival-news/generated';
 
 export interface Article {
   id: number;
@@ -23,6 +24,10 @@ export interface Author {
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchArticle = async (articleId: string): Promise<Article> => {
+  const ref = listStoriesRef();
+  const { data } = await executeQuery(ref);
+  console.log('stories', data.stories);
+
   await delay(500); // Simulate network latency
 
   const article = mockArticleData.find(

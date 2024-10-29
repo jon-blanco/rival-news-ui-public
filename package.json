@@ -18,7 +18,7 @@
     "@nextui-org/react": "^2.4.8",
     "@nextui-org/system": "^2.2.6",
     "@nextui-org/theme": "^2.2.11",
-    "@rival-news/gcp-dc-generated": "file:dataconnect-generated/js/gcp-dc-generated",
+    "@rival-news/generated": "file:dataconnect-generated/js/generated",
     "firebase": "^11.0.0",
     "firebaseui": "^6.1.0",
     "framer-motion": "^11.11.9",

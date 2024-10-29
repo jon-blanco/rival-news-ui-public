@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@firebasegen/default-connector':
-        specifier: file:dataconnect-generated/js/default-connector
-        version: '@rival-news/default-connector@file:dataconnect-generated/js/default-connector(firebase@11.0.0)'
       '@nextui-org/accordion':
         specifier: ^2.0.40
         version: 2.0.40(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.14))(framer-motion@11.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.14))(framer-motion@11.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -23,12 +20,9 @@ importers:
       '@nextui-org/theme':
         specifier: ^2.2.11
         version: 2.2.11(tailwindcss@3.4.14)
-      '@rival-news/default-connector':
-        specifier: file:dataconnect-generated/js/default-connector
-        version: file:dataconnect-generated/js/default-connector(firebase@11.0.0)
-      '@rival-news/gcp-dc-generated':
-        specifier: file:dataconnect-generated/js/gcp-dc-generated
-        version: file:dataconnect-generated/js/gcp-dc-generated(firebase@11.0.0)
+      '@rival-news/generated':
+        specifier: file:dataconnect-generated/js/generated
+        version: file:dataconnect-generated/js/generated(firebase@11.0.0)
       firebase:
         specifier: ^11.0.0
         version: 11.0.0
@@ -1767,14 +1761,8 @@ packages:
     resolution: {integrity: sha512-mUnk8rPJBI9loFDZ+YzPGdeniYK+FTmRD1TMCz7ev2SNIozyKKpnGgsxO34u6Z4z/t0ITuu7voi/AshfsGsgFg==}
     engines: {node: '>=14.0.0'}
 
-  '@rival-news/default-connector@file:dataconnect-generated/js/default-connector':
-    resolution: {directory: dataconnect-generated/js/default-connector, type: directory}
-    engines: {node: ' >=18.0'}
-    peerDependencies:
-      firebase: ^10.14.0
-
-  '@rival-news/gcp-dc-generated@file:dataconnect-generated/js/gcp-dc-generated':
-    resolution: {directory: dataconnect-generated/js/gcp-dc-generated, type: directory}
+  '@rival-news/generated@file:dataconnect-generated/js/generated':
+    resolution: {directory: dataconnect-generated/js/generated, type: directory}
     engines: {node: ' >=18.0'}
     peerDependencies:
       firebase: ^10.14.0
@@ -6169,11 +6157,7 @@ snapshots:
 
   '@remix-run/router@1.20.0': {}
 
-  '@rival-news/default-connector@file:dataconnect-generated/js/default-connector(firebase@11.0.0)':
-    dependencies:
-      firebase: 11.0.0
-
-  '@rival-news/gcp-dc-generated@file:dataconnect-generated/js/gcp-dc-generated(firebase@11.0.0)':
+  '@rival-news/generated@file:dataconnect-generated/js/generated(firebase@11.0.0)':
     dependencies:
       firebase: 11.0.0
 

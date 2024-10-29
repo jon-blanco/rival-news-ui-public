@@ -1,5 +1,5 @@
 specVersion: "v1beta"
-serviceId: "rival-news-ui"
+serviceId: "rival-news"
 location: "us-central1"
 schema:
   source: "./schema"
@@ -7,6 +7,6 @@ schema:
     postgresql:
       database: "fdcdb"
       cloudSql:
-        instanceId: "rival-news-ui-fdc"
+        instanceId: "rival-news-fdc"
       # schemaValidation: "COMPATIBLE"
 connectorDirs: ["./connector"]

@@ -1,6 +1,6 @@
 connectorId: default
 generate:
   javascriptSdk:
-    outputDir: ../../dataconnect-generated/js/gcp-dc-generated
-    package: "@rival-news/gcp-dc-generated"
+    outputDir: ../../dataconnect-generated/js/generated
+    package: "@rival-news/generated"
     packageJsonDir: ../..
