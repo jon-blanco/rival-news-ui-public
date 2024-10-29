@@ -13,38 +13,8 @@
 #       imageUrl: $imageUrl
 #     }
 #   )
-# }
+#
 
-# # Upsert (update or insert) a user's username based on their auth.uid
-# mutation UpsertUser($username: String!) @auth(level: USER) {
-#   user_upsert(
-#     data: {
-#       id_expr: "auth.uid"
-#       username: $username
-#     }
-#   )
-# }
-
-# # Add a review for a movie
-# mutation AddReview(
-#   $movieId: UUID!
-#   $rating: Int!
-#   $reviewText: String!
-# ) @auth(level: USER) {
-#   review_upsert(
-#     data: {
-#       userId_expr: "auth.uid"
-#       movieId: $movieId
-#       rating: $rating
-#       reviewText: $reviewText
-#       # reviewDate defaults to today in the schema. No need to set it manually.
-#     }
-#   )
-# }
-
-# # Logged in user can delete their review for a movie
-# mutation DeleteReview(
-#   $movieId: UUID!
-# ) @auth(level: USER) {
-#   review_delete(key: { userId_expr: "auth.uid", movieId: $movieId })
+# mutation InsertUser($id: String!, $username: String!) @auth(level: PUBLIC) {
+#   user_insert(data: { id: $id, username: $username })
 # }

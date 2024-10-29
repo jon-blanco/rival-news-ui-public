@@ -1,0 +1,42 @@
+extend type Article {
+  """
+  ✨ Implicit foreign key field based on `Article`.`factSet`. It must match the value of `FactSet`.`storyId`. See `@ref` for how to customize it.
+  """
+  factSetStoryId: UUID! @fdc_generated(from: "Article.factSet", purpose: IMPLICIT_REF_FIELD)
+}
+extend type ArticleComparison {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "ArticleComparison", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ArticleComparison`.`articleA`. It must match the value of `Article`.`factSetStoryId`. See `@ref` for how to customize it.
+  """
+  articleAFactSetStoryId: UUID! @fdc_generated(from: "ArticleComparison.articleA", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `ArticleComparison`.`articleB`. It must match the value of `Article`.`factSetStoryId`. See `@ref` for how to customize it.
+  """
+  articleBFactSetStoryId: UUID! @fdc_generated(from: "ArticleComparison.articleB", purpose: IMPLICIT_REF_FIELD)
+}
+extend type FactSet {
+  """
+  ✨ Implicit foreign key field based on `FactSet`.`story`. It must match the value of `Story`.`id`. See `@ref` for how to customize it.
+  """
+  storyId: UUID! @fdc_generated(from: "FactSet.story", purpose: IMPLICIT_REF_FIELD)
+}
+extend type Story {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "Story", purpose: IMPLICIT_KEY_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Story`.`status`. It must match the value of `StoryStatus`.`id`. See `@ref` for how to customize it.
+  """
+  statusId: UUID! @fdc_generated(from: "Story.status", purpose: IMPLICIT_REF_FIELD)
+}
+extend type StoryStatus {
+  """
+  ✨ Implicit primary key field. It's a UUID column default to a generated new value. See `@table` for how to customize it.
+  """
+  id: UUID! @default(expr: "uuidV4()") @fdc_generated(from: "StoryStatus", purpose: IMPLICIT_KEY_FIELD)
+}

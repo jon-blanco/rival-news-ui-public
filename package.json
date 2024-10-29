@@ -9,14 +9,16 @@
     "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,json,css,scss,html,md}'",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "firebase dataconnect:sdk:generate",
+    "generate:continuously": "firebase dataconnect:sdk:generate --watch"
   },
   "dependencies": {
-    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "@nextui-org/accordion": "^2.0.40",
     "@nextui-org/react": "^2.4.8",
     "@nextui-org/system": "^2.2.6",
     "@nextui-org/theme": "^2.2.11",
+    "@rival-news/gcp-dc-generated": "file:dataconnect-generated/js/gcp-dc-generated",
     "firebase": "^11.0.0",
     "firebaseui": "^6.1.0",
     "framer-motion": "^11.11.9",

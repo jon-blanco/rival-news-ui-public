@@ -1,0 +1,88 @@
+extend type Article {
+  """
+  ✨ List `ArticleComparison` objects in a one-to-many relationship (where `ArticleComparison`.`articleA` is this object).
+  """
+  articleComparisons_on_articleA(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ArticleComparison_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ArticleComparison_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [ArticleComparison!]! @fdc_generated(from: "ArticleComparison.articleA", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `ArticleComparison` objects in a one-to-many relationship (where `ArticleComparison`.`articleB` is this object).
+  """
+  articleComparisons_on_articleB(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ArticleComparison_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ArticleComparison_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [ArticleComparison!]! @fdc_generated(from: "ArticleComparison.articleB", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+}
+extend type FactSet {
+  """
+  ✨ List `Article` objects in a one-to-one relationship (where `Article`.`factSet` is this object).
+  """
+  article_on_factSet: Article @fdc_generated(from: "Article.factSet", purpose: QUERY_SINGLE_ONE_TO_ONE)
+}
+extend type Story {
+  """
+  ✨ List `FactSet` objects in a one-to-one relationship (where `FactSet`.`story` is this object).
+  """
+  factSet_on_story: FactSet @fdc_generated(from: "FactSet.story", purpose: QUERY_SINGLE_ONE_TO_ONE)
+}
+extend type StoryStatus {
+  """
+  ✨ List `Story` objects in a one-to-many relationship (where `Story`.`status` is this object).
+  """
+  stories_on_status(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Story_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Story_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Story!]! @fdc_generated(from: "Story.status", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+}

@@ -1,17 +1,97 @@
 extend type Query {
   """
+  ✨ Look up a single `Article` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  article(
+    """
+    The key used to identify the object.
+    """
+    key: Article_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Article_FirstRow
+  ): Article @fdc_generated(from: "Article", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `ArticleComparison` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  articleComparison(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ArticleComparison_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ArticleComparison_FirstRow
+  ): ArticleComparison @fdc_generated(from: "ArticleComparison", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `FactSet` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  factSet(
+    """
+    The key used to identify the object.
+    """
+    key: FactSet_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: FactSet_FirstRow
+  ): FactSet @fdc_generated(from: "FactSet", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Story` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  story(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Story_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Story_FirstRow
+  ): Story @fdc_generated(from: "Story", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `StoryStatus` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  storyStatus(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: StoryStatus_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: StoryStatus_FirstRow
+  ): StoryStatus @fdc_generated(from: "StoryStatus", purpose: QUERY_SINGLE)
+  """
   ✨ Look up a single `User` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
   user(
     """
     The unique ID of the object.
     """
-    id: String
-
-    """
-    ✨ `_expr` server value variant of `id` (The unique ID of the object.)
-    """
-    id_expr: String_Expr
+    id: UUID
 
     """
     The key used to identify the object.
@@ -23,6 +103,126 @@ extend type Query {
     """
     first: User_FirstRow
   ): User @fdc_generated(from: "User", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Article` objects in the table, optionally filtered by `where` conditions.
+  """
+  articles(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Article_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Article_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Article!]! @fdc_generated(from: "Article", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `ArticleComparison` objects in the table, optionally filtered by `where` conditions.
+  """
+  articleComparisons(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ArticleComparison_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ArticleComparison_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [ArticleComparison!]! @fdc_generated(from: "ArticleComparison", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `FactSet` objects in the table, optionally filtered by `where` conditions.
+  """
+  factSets(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: FactSet_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [FactSet_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [FactSet!]! @fdc_generated(from: "FactSet", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Story` objects in the table, optionally filtered by `where` conditions.
+  """
+  stories(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Story_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Story_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Story!]! @fdc_generated(from: "Story", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `StoryStatus` objects in the table, optionally filtered by `where` conditions.
+  """
+  storyStatuses(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: StoryStatus_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [StoryStatus_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [StoryStatus!]! @fdc_generated(from: "StoryStatus", purpose: QUERY_MULTIPLE)
   """
   ✨ List `User` objects in the table, optionally filtered by `where` conditions.
   """

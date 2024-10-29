@@ -1,21 +1,753 @@
 """
+✨ `Article_KeyOutput` returns the primary key fields of table type `Article`.
+
+It has the same format as `Article_Key`, but is only used as mutation return value.
+"""
+scalar Article_KeyOutput
+"""
+✨ `ArticleComparison_KeyOutput` returns the primary key fields of table type `ArticleComparison`.
+
+It has the same format as `ArticleComparison_Key`, but is only used as mutation return value.
+"""
+scalar ArticleComparison_KeyOutput
+"""
+✨ `FactSet_KeyOutput` returns the primary key fields of table type `FactSet`.
+
+It has the same format as `FactSet_Key`, but is only used as mutation return value.
+"""
+scalar FactSet_KeyOutput
+"""
+✨ `Story_KeyOutput` returns the primary key fields of table type `Story`.
+
+It has the same format as `Story_Key`, but is only used as mutation return value.
+"""
+scalar Story_KeyOutput
+"""
+✨ `StoryStatus_KeyOutput` returns the primary key fields of table type `StoryStatus`.
+
+It has the same format as `StoryStatus_Key`, but is only used as mutation return value.
+"""
+scalar StoryStatus_KeyOutput
+"""
 ✨ `User_KeyOutput` returns the primary key fields of table type `User`.
 
 It has the same format as `User_Key`, but is only used as mutation return value.
 """
 scalar User_KeyOutput
 """
+✨ Generated data input type for table 'Article'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Article_Data {
+  """
+  ✨ Generated from Field `Article`.`factSetStoryId` of type `UUID!`
+  """
+  factSetStoryId: UUID
+  """
+  ✨ `_expr` server value variant of `factSetStoryId` (✨ Generated from Field `Article`.`factSetStoryId` of type `UUID!`)
+  """
+  factSetStoryId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Article`.`factSet` of type `FactSet!`
+  """
+  factSet: FactSet_Key
+  """
+  ✨ Generated from Field `Article`.`generatedContent` of type `String!`
+  """
+  generatedContent: String
+  """
+  ✨ `_expr` server value variant of `generatedContent` (✨ Generated from Field `Article`.`generatedContent` of type `String!`)
+  """
+  generatedContent_expr: String_Expr
+  """
+  ✨ Generated from Field `Article`.`hasBeenReviewed` of type `Boolean!`
+  """
+  hasBeenReviewed: Boolean
+  """
+  ✨ Generated from Field `Article`.`isLive` of type `Boolean!`
+  """
+  isLive: Boolean
+  """
+  ✨ Generated from Field `Article`.`reviewedContent` of type `String`
+  """
+  reviewedContent: String
+  """
+  ✨ `_expr` server value variant of `reviewedContent` (✨ Generated from Field `Article`.`reviewedContent` of type `String`)
+  """
+  reviewedContent_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'Article'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Article_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Article_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Article_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Article_Filter!]
+  """
+  ✨ Generated from Field `Article`.`factSetStoryId` of type `UUID!`
+  """
+  factSetStoryId: UUID_Filter
+  """
+  ✨ Generated from Field `Article`.`factSet` of type `FactSet!`
+  """
+  factSet: FactSet_Filter
+  """
+  ✨ Generated from Field `Article`.`generatedContent` of type `String!`
+  """
+  generatedContent: String_Filter
+  """
+  ✨ Generated from Field `Article`.`hasBeenReviewed` of type `Boolean!`
+  """
+  hasBeenReviewed: Boolean_Filter
+  """
+  ✨ Generated from Field `Article`.`isLive` of type `Boolean!`
+  """
+  isLive: Boolean_Filter
+  """
+  ✨ Generated from Field `Article`.`reviewedContent` of type `String`
+  """
+  reviewedContent: String_Filter
+  """
+  ✨ Generated from Field `Article`.`articleComparisons_on_articleA` of type `[ArticleComparison!]!`
+  """
+  articleComparisons_on_articleA: ArticleComparison_ListFilter
+  """
+  ✨ Generated from Field `Article`.`articleComparisons_on_articleB` of type `[ArticleComparison!]!`
+  """
+  articleComparisons_on_articleB: ArticleComparison_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'Article'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Article_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Article_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Article_Filter
+}
+"""
+✨ Generated key input type for table 'Article'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Article_Key {
+  """
+  ✨ Generated from Field `Article`.`factSetStoryId` of type `UUID!`
+  """
+  factSetStoryId: UUID
+  """
+  ✨ `_expr` server value variant of `factSetStoryId` (✨ Generated from Field `Article`.`factSetStoryId` of type `UUID!`)
+  """
+  factSetStoryId_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Article'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Article_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Article_Filter
+}
+"""
+✨ Generated order input type for table 'Article'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Article_Order {
+  """
+  ✨ Generated from Field `Article`.`factSetStoryId` of type `UUID!`
+  """
+  factSetStoryId: OrderDirection
+  """
+  ✨ Generated from Field `Article`.`factSet` of type `FactSet!`
+  """
+  factSet: FactSet_Order
+  """
+  ✨ Generated from Field `Article`.`generatedContent` of type `String!`
+  """
+  generatedContent: OrderDirection
+  """
+  ✨ Generated from Field `Article`.`hasBeenReviewed` of type `Boolean!`
+  """
+  hasBeenReviewed: OrderDirection
+  """
+  ✨ Generated from Field `Article`.`isLive` of type `Boolean!`
+  """
+  isLive: OrderDirection
+  """
+  ✨ Generated from Field `Article`.`reviewedContent` of type `String`
+  """
+  reviewedContent: OrderDirection
+}
+"""
+✨ Generated data input type for table 'ArticleComparison'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input ArticleComparison_Data {
+  """
+  ✨ Generated from Field `ArticleComparison`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ArticleComparison`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleAFactSetStoryId` of type `UUID!`
+  """
+  articleAFactSetStoryId: UUID
+  """
+  ✨ `_expr` server value variant of `articleAFactSetStoryId` (✨ Generated from Field `ArticleComparison`.`articleAFactSetStoryId` of type `UUID!`)
+  """
+  articleAFactSetStoryId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleBFactSetStoryId` of type `UUID!`
+  """
+  articleBFactSetStoryId: UUID
+  """
+  ✨ `_expr` server value variant of `articleBFactSetStoryId` (✨ Generated from Field `ArticleComparison`.`articleBFactSetStoryId` of type `UUID!`)
+  """
+  articleBFactSetStoryId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleA` of type `Article!`
+  """
+  articleA: Article_Key
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleB` of type `Article!`
+  """
+  articleB: Article_Key
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleAUniqueShareCount` of type `Int!`
+  """
+  articleAUniqueShareCount: Int
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleBUniqueShareCount` of type `Int!`
+  """
+  articleBUniqueShareCount: Int
+  """
+  ✨ Generated from Field `ArticleComparison`.`countThreshold` of type `Int!`
+  """
+  countThreshold: Int
+}
+"""
+✨ Generated filter input type for table 'ArticleComparison'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input ArticleComparison_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [ArticleComparison_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: ArticleComparison_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [ArticleComparison_Filter!]
+  """
+  ✨ Generated from Field `ArticleComparison`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleAFactSetStoryId` of type `UUID!`
+  """
+  articleAFactSetStoryId: UUID_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleBFactSetStoryId` of type `UUID!`
+  """
+  articleBFactSetStoryId: UUID_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleA` of type `Article!`
+  """
+  articleA: Article_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleB` of type `Article!`
+  """
+  articleB: Article_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleAUniqueShareCount` of type `Int!`
+  """
+  articleAUniqueShareCount: Int_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleBUniqueShareCount` of type `Int!`
+  """
+  articleBUniqueShareCount: Int_Filter
+  """
+  ✨ Generated from Field `ArticleComparison`.`countThreshold` of type `Int!`
+  """
+  countThreshold: Int_Filter
+}
+"""
+✨ Generated first-row input type for table 'ArticleComparison'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input ArticleComparison_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [ArticleComparison_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: ArticleComparison_Filter
+}
+"""
+✨ Generated key input type for table 'ArticleComparison'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input ArticleComparison_Key {
+  """
+  ✨ Generated from Field `ArticleComparison`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `ArticleComparison`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'ArticleComparison'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input ArticleComparison_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: ArticleComparison_Filter
+}
+"""
+✨ Generated order input type for table 'ArticleComparison'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input ArticleComparison_Order {
+  """
+  ✨ Generated from Field `ArticleComparison`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleAFactSetStoryId` of type `UUID!`
+  """
+  articleAFactSetStoryId: OrderDirection
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleBFactSetStoryId` of type `UUID!`
+  """
+  articleBFactSetStoryId: OrderDirection
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleA` of type `Article!`
+  """
+  articleA: Article_Order
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleB` of type `Article!`
+  """
+  articleB: Article_Order
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleAUniqueShareCount` of type `Int!`
+  """
+  articleAUniqueShareCount: OrderDirection
+  """
+  ✨ Generated from Field `ArticleComparison`.`articleBUniqueShareCount` of type `Int!`
+  """
+  articleBUniqueShareCount: OrderDirection
+  """
+  ✨ Generated from Field `ArticleComparison`.`countThreshold` of type `Int!`
+  """
+  countThreshold: OrderDirection
+}
+"""
+✨ Generated data input type for table 'FactSet'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input FactSet_Data {
+  """
+  ✨ Generated from Field `FactSet`.`storyId` of type `UUID!`
+  """
+  storyId: UUID
+  """
+  ✨ `_expr` server value variant of `storyId` (✨ Generated from Field `FactSet`.`storyId` of type `UUID!`)
+  """
+  storyId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `FactSet`.`story` of type `Story!`
+  """
+  story: Story_Key
+  """
+  ✨ Generated from Field `FactSet`.`coreFact` of type `String!`
+  """
+  coreFact: String
+  """
+  ✨ `_expr` server value variant of `coreFact` (✨ Generated from Field `FactSet`.`coreFact` of type `String!`)
+  """
+  coreFact_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'FactSet'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input FactSet_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [FactSet_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: FactSet_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [FactSet_Filter!]
+  """
+  ✨ Generated from Field `FactSet`.`storyId` of type `UUID!`
+  """
+  storyId: UUID_Filter
+  """
+  ✨ Generated from Field `FactSet`.`story` of type `Story!`
+  """
+  story: Story_Filter
+  """
+  ✨ Generated from Field `FactSet`.`coreFact` of type `String!`
+  """
+  coreFact: String_Filter
+  """
+  ✨ Generated from Field `FactSet`.`article_on_factSet` of type `Article`
+  """
+  article_on_factSet: Article_Filter
+}
+"""
+✨ Generated first-row input type for table 'FactSet'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input FactSet_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [FactSet_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: FactSet_Filter
+}
+"""
+✨ Generated key input type for table 'FactSet'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input FactSet_Key {
+  """
+  ✨ Generated from Field `FactSet`.`storyId` of type `UUID!`
+  """
+  storyId: UUID
+  """
+  ✨ `_expr` server value variant of `storyId` (✨ Generated from Field `FactSet`.`storyId` of type `UUID!`)
+  """
+  storyId_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'FactSet'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input FactSet_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: FactSet_Filter
+}
+"""
+✨ Generated order input type for table 'FactSet'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input FactSet_Order {
+  """
+  ✨ Generated from Field `FactSet`.`storyId` of type `UUID!`
+  """
+  storyId: OrderDirection
+  """
+  ✨ Generated from Field `FactSet`.`story` of type `Story!`
+  """
+  story: Story_Order
+  """
+  ✨ Generated from Field `FactSet`.`coreFact` of type `String!`
+  """
+  coreFact: OrderDirection
+}
+"""
+✨ Generated data input type for table 'Story'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input Story_Data {
+  """
+  ✨ Generated from Field `Story`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Story`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Story`.`statusId` of type `UUID!`
+  """
+  statusId: UUID
+  """
+  ✨ `_expr` server value variant of `statusId` (✨ Generated from Field `Story`.`statusId` of type `UUID!`)
+  """
+  statusId_expr: UUID_Expr
+  """
+  ✨ Generated from Field `Story`.`status` of type `StoryStatus!`
+  """
+  status: StoryStatus_Key
+  """
+  ✨ Generated from Field `Story`.`publishedAt` of type `Timestamp`
+  """
+  publishedAt: Timestamp
+  """
+  ✨ `_expr` server value variant of `publishedAt` (✨ Generated from Field `Story`.`publishedAt` of type `Timestamp`)
+  """
+  publishedAt_expr: Timestamp_Expr
+  """
+  ✨ `_time` server value variant of `publishedAt` (✨ Generated from Field `Story`.`publishedAt` of type `Timestamp`)
+  """
+  publishedAt_time: Timestamp_Relative
+}
+"""
+✨ Generated filter input type for table 'Story'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input Story_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [Story_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: Story_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [Story_Filter!]
+  """
+  ✨ Generated from Field `Story`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `Story`.`statusId` of type `UUID!`
+  """
+  statusId: UUID_Filter
+  """
+  ✨ Generated from Field `Story`.`status` of type `StoryStatus!`
+  """
+  status: StoryStatus_Filter
+  """
+  ✨ Generated from Field `Story`.`publishedAt` of type `Timestamp`
+  """
+  publishedAt: Timestamp_Filter
+  """
+  ✨ Generated from Field `Story`.`factSet_on_story` of type `FactSet`
+  """
+  factSet_on_story: FactSet_Filter
+}
+"""
+✨ Generated first-row input type for table 'Story'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input Story_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [Story_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: Story_Filter
+}
+"""
+✨ Generated key input type for table 'Story'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input Story_Key {
+  """
+  ✨ Generated from Field `Story`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Story`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'Story'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input Story_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: Story_Filter
+}
+"""
+✨ Generated order input type for table 'Story'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input Story_Order {
+  """
+  ✨ Generated from Field `Story`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `Story`.`statusId` of type `UUID!`
+  """
+  statusId: OrderDirection
+  """
+  ✨ Generated from Field `Story`.`status` of type `StoryStatus!`
+  """
+  status: StoryStatus_Order
+  """
+  ✨ Generated from Field `Story`.`publishedAt` of type `Timestamp`
+  """
+  publishedAt: OrderDirection
+}
+"""
+✨ Generated data input type for table 'StoryStatus'. It includes all necessary fields for creating or upserting rows into table.
+"""
+input StoryStatus_Data {
+  """
+  ✨ Generated from Field `StoryStatus`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `StoryStatus`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `StoryStatus`.`status` of type `String!`
+  """
+  status: String
+  """
+  ✨ `_expr` server value variant of `status` (✨ Generated from Field `StoryStatus`.`status` of type `String!`)
+  """
+  status_expr: String_Expr
+}
+"""
+✨ Generated filter input type for table 'StoryStatus'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+"""
+input StoryStatus_Filter {
+  """
+  Apply multiple filter conditions using `AND` logic.
+  """
+  _and: [StoryStatus_Filter!]
+  """
+  Negate the result of the provided filter condition.
+  """
+  _not: StoryStatus_Filter
+  """
+  Apply multiple filter conditions using `OR` logic.
+  """
+  _or: [StoryStatus_Filter!]
+  """
+  ✨ Generated from Field `StoryStatus`.`id` of type `UUID!`
+  """
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `StoryStatus`.`status` of type `String!`
+  """
+  status: String_Filter
+  """
+  ✨ Generated from Field `StoryStatus`.`stories_on_status` of type `[Story!]!`
+  """
+  stories_on_status: Story_ListFilter
+}
+"""
+✨ Generated first-row input type for table 'StoryStatus'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+"""
+input StoryStatus_FirstRow {
+  """
+  Order the result by the specified fields.
+  """
+  orderBy: [StoryStatus_Order!]
+  """
+  Filters rows based on the specified conditions.
+  """
+  where: StoryStatus_Filter
+}
+"""
+✨ Generated key input type for table 'StoryStatus'. It represents the primary key fields used to uniquely identify a row in the table.
+"""
+input StoryStatus_Key {
+  """
+  ✨ Generated from Field `StoryStatus`.`id` of type `UUID!`
+  """
+  id: UUID
+  """
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `StoryStatus`.`id` of type `UUID!`)
+  """
+  id_expr: UUID_Expr
+}
+"""
+✨ Generated list filter input type for table 'StoryStatus'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+"""
+input StoryStatus_ListFilter {
+  """
+  The desired number of objects that match the condition (defaults to at least one).
+  """
+  count: Int_Filter = {gt:0}
+  """
+  Condition of the related objects to filter for.
+  """
+  exist: StoryStatus_Filter
+}
+"""
+✨ Generated order input type for table 'StoryStatus'. This input defines the sorting order of rows in query results based on one or more fields.
+"""
+input StoryStatus_Order {
+  """
+  ✨ Generated from Field `StoryStatus`.`id` of type `UUID!`
+  """
+  id: OrderDirection
+  """
+  ✨ Generated from Field `StoryStatus`.`status` of type `String!`
+  """
+  status: OrderDirection
+}
+"""
 ✨ Generated data input type for table 'User'. It includes all necessary fields for creating or upserting rows into table.
 """
 input User_Data {
   """
-  ✨ Generated from Field `User`.`id` of type `String!`
+  ✨ Generated from Field `User`.`id` of type `UUID!`
   """
-  id: String
+  id: UUID
   """
-  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `String!`)
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
   """
-  id_expr: String_Expr
+  id_expr: UUID_Expr
+  """
+  ✨ Generated from Field `User`.`auth` of type `String`
+  """
+  auth: String
+  """
+  ✨ `_expr` server value variant of `auth` (✨ Generated from Field `User`.`auth` of type `String`)
+  """
+  auth_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: String
+  """
+  ✨ `_expr` server value variant of `email` (✨ Generated from Field `User`.`email` of type `String!`)
+  """
+  email_expr: String_Expr
+  """
+  ✨ Generated from Field `User`.`isVerifiedJournalist` of type `Boolean!`
+  """
+  isVerifiedJournalist: Boolean
   """
   ✨ Generated from Field `User`.`username` of type `String`
   """
@@ -42,9 +774,21 @@ input User_Filter {
   """
   _or: [User_Filter!]
   """
-  ✨ Generated from Field `User`.`id` of type `String!`
+  ✨ Generated from Field `User`.`id` of type `UUID!`
   """
-  id: String_Filter
+  id: UUID_Filter
+  """
+  ✨ Generated from Field `User`.`auth` of type `String`
+  """
+  auth: String_Filter
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: String_Filter
+  """
+  ✨ Generated from Field `User`.`isVerifiedJournalist` of type `Boolean!`
+  """
+  isVerifiedJournalist: Boolean_Filter
   """
   ✨ Generated from Field `User`.`username` of type `String`
   """
@@ -68,13 +812,13 @@ input User_FirstRow {
 """
 input User_Key {
   """
-  ✨ Generated from Field `User`.`id` of type `String!`
+  ✨ Generated from Field `User`.`id` of type `UUID!`
   """
-  id: String
+  id: UUID
   """
-  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `String!`)
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `User`.`id` of type `UUID!`)
   """
-  id_expr: String_Expr
+  id_expr: UUID_Expr
 }
 """
 ✨ Generated list filter input type for table 'User'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
@@ -94,9 +838,21 @@ input User_ListFilter {
 """
 input User_Order {
   """
-  ✨ Generated from Field `User`.`id` of type `String!`
+  ✨ Generated from Field `User`.`id` of type `UUID!`
   """
   id: OrderDirection
+  """
+  ✨ Generated from Field `User`.`auth` of type `String`
+  """
+  auth: OrderDirection
+  """
+  ✨ Generated from Field `User`.`email` of type `String!`
+  """
+  email: OrderDirection
+  """
+  ✨ Generated from Field `User`.`isVerifiedJournalist` of type `Boolean!`
+  """
+  isVerifiedJournalist: OrderDirection
   """
   ✨ Generated from Field `User`.`username` of type `String`
   """
