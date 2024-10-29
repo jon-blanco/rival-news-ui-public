@@ -4,6 +4,11 @@ extend type Query {
   """
   article(
     """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
     The key used to identify the object.
     """
     key: Article_Key
@@ -14,28 +19,14 @@ extend type Query {
     first: Article_FirstRow
   ): Article @fdc_generated(from: "Article", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `ArticleComparison` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `FactSet` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  articleComparison(
+  factSet(
     """
     The unique ID of the object.
     """
     id: UUID
 
-    """
-    The key used to identify the object.
-    """
-    key: ArticleComparison_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: ArticleComparison_FirstRow
-  ): ArticleComparison @fdc_generated(from: "ArticleComparison", purpose: QUERY_SINGLE)
-  """
-  ✨ Look up a single `FactSet` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
-  """
-  factSet(
     """
     The key used to identify the object.
     """
@@ -127,30 +118,6 @@ extend type Query {
     """
     limit: Int = 100
   ): [Article!]! @fdc_generated(from: "Article", purpose: QUERY_MULTIPLE)
-  """
-  ✨ List `ArticleComparison` objects in the table, optionally filtered by `where` conditions.
-  """
-  articleComparisons(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ArticleComparison_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ArticleComparison_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-  ): [ArticleComparison!]! @fdc_generated(from: "ArticleComparison", purpose: QUERY_MULTIPLE)
   """
   ✨ List `FactSet` objects in the table, optionally filtered by `where` conditions.
   """

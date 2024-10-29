@@ -1,64 +1,54 @@
-extend type Article {
-  """
-  ✨ List `ArticleComparison` objects in a one-to-many relationship (where `ArticleComparison`.`articleA` is this object).
-  """
-  articleComparisons_on_articleA(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ArticleComparison_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ArticleComparison_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-  ): [ArticleComparison!]! @fdc_generated(from: "ArticleComparison.articleA", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-  """
-  ✨ List `ArticleComparison` objects in a one-to-many relationship (where `ArticleComparison`.`articleB` is this object).
-  """
-  articleComparisons_on_articleB(
-    """
-    Filter condition to narrow down the query results.
-    """
-    where: ArticleComparison_Filter
-
-    """
-    Order the query results by specific fields.
-    """
-    orderBy: [ArticleComparison_Order!]
-
-    """
-    Number of rows to skip before starting to return the results.
-    """
-    offset: Int
-
-    """
-    Maximum number of rows to return (defaults to 100 rows).
-    """
-    limit: Int = 100
-  ): [ArticleComparison!]! @fdc_generated(from: "ArticleComparison.articleB", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
-}
 extend type FactSet {
   """
-  ✨ List `Article` objects in a one-to-one relationship (where `Article`.`factSet` is this object).
+  ✨ List `Article` objects in a one-to-many relationship (where `Article`.`factSet` is this object).
   """
-  article_on_factSet: Article @fdc_generated(from: "Article.factSet", purpose: QUERY_SINGLE_ONE_TO_ONE)
+  articles_on_factSet(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Article_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Article_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Article!]! @fdc_generated(from: "Article.factSet", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
 }
 extend type Story {
   """
-  ✨ List `FactSet` objects in a one-to-one relationship (where `FactSet`.`story` is this object).
+  ✨ List `FactSet` objects in a one-to-many relationship (where `FactSet`.`story` is this object).
   """
-  factSet_on_story: FactSet @fdc_generated(from: "FactSet.story", purpose: QUERY_SINGLE_ONE_TO_ONE)
+  factSets_on_story(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: FactSet_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [FactSet_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [FactSet!]! @fdc_generated(from: "FactSet.story", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
 }
 extend type StoryStatus {
   """

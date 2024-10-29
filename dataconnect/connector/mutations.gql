@@ -18,3 +18,44 @@
 # mutation InsertUser($id: String!, $username: String!) @auth(level: PUBLIC) {
 #   user_insert(data: { id: $id, username: $username })
 # }
+
+mutation InsertStoryStatus($status: String!) @auth(level: PUBLIC) {
+  storyStatus_insert(data: { status: $status })
+}
+
+mutation InsertStory(
+  $status: StoryStatus_Key!
+  $storyReferenceName: String!
+  $publishedAt: Timestamp
+) @auth(level: PUBLIC) {
+  story_insert(
+    data: {
+      status: $status
+      storyReferenceName: $storyReferenceName
+      publishedAt: $publishedAt
+    }
+  )
+}
+
+mutation InsertFactSet($story: Story_Key!, $coreFacts: String!)
+@auth(level: PUBLIC) {
+  factSet_insert(data: { story: $story, coreFacts: $coreFacts })
+}
+
+mutation InsertArticle(
+  $factSet: FactSet_Key!
+  $generatedContent: String!
+  $reviewedContent: String
+  $hasBeenReviewed: Boolean!
+  $isLive: Boolean!
+) @auth(level: PUBLIC) {
+  article_insert(
+    data: {
+      factSet: $factSet
+      generatedContent: $generatedContent
+      reviewedContent: $reviewedContent
+      hasBeenReviewed: $hasBeenReviewed
+      isLive: $isLive
+    }
+  )
+}

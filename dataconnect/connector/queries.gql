@@ -1,10 +1,21 @@
-query ListStories @auth(level: PUBLIC) {
-  stories {
+query ListArticles @auth(level: PUBLIC) {
+  articles {
     id
-    status {
+    factSet {
       id
-      status
+      story {
+        id
+        status {
+          id
+          status
+        }
+        publishedAt
+      }
+      coreFacts
     }
-    publishedAt
+    generatedContent
+    reviewedContent
+    hasBeenReviewed
+    isLive
   }
 }

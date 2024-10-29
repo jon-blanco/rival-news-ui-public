@@ -9,15 +9,6 @@ extend type Mutation {
     data: Article_Data!
   ): Article_KeyOutput! @fdc_generated(from: "Article", purpose: INSERT_SINGLE)
   """
-  ✨ Insert a single `ArticleComparison` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
-  """
-  articleComparison_insert(
-    """
-    Data object to insert into the table.
-    """
-    data: ArticleComparison_Data!
-  ): ArticleComparison_KeyOutput! @fdc_generated(from: "ArticleComparison", purpose: INSERT_SINGLE)
-  """
   ✨ Insert a single `FactSet` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
   factSet_insert(
@@ -62,15 +53,6 @@ extend type Mutation {
     """
     data: [Article_Data!]!
   ): [Article_KeyOutput!]! @fdc_generated(from: "Article", purpose: INSERT_MULTIPLE)
-  """
-  ✨ Insert `ArticleComparison` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
-  """
-  articleComparison_insertMany(
-    """
-    List of data objects to insert into the table.
-    """
-    data: [ArticleComparison_Data!]!
-  ): [ArticleComparison_KeyOutput!]! @fdc_generated(from: "ArticleComparison", purpose: INSERT_MULTIPLE)
   """
   ✨ Insert `FactSet` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -117,15 +99,6 @@ extend type Mutation {
     data: Article_Data!
   ): Article_KeyOutput! @fdc_generated(from: "Article", purpose: UPSERT_SINGLE)
   """
-  ✨ Insert or update a single `ArticleComparison` into the table, based on the primary key. Returns the key of the newly inserted `ArticleComparison`.
-  """
-  articleComparison_upsert(
-    """
-    Data object to insert or update if it already exists.
-    """
-    data: ArticleComparison_Data!
-  ): ArticleComparison_KeyOutput! @fdc_generated(from: "ArticleComparison", purpose: UPSERT_SINGLE)
-  """
   ✨ Insert or update a single `FactSet` into the table, based on the primary key. Returns the key of the newly inserted `FactSet`.
   """
   factSet_upsert(
@@ -166,6 +139,11 @@ extend type Mutation {
   """
   article_update(
     """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
     The key used to identify the object.
     """
     key: Article_Key
@@ -181,33 +159,14 @@ extend type Mutation {
     data: Article_Data!
   ): Article_KeyOutput @fdc_generated(from: "Article", purpose: UPDATE_SINGLE)
   """
-  ✨ Update a single `ArticleComparison` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  ✨ Update a single `FactSet` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
   """
-  articleComparison_update(
+  factSet_update(
     """
     The unique ID of the object.
     """
     id: UUID
 
-    """
-    The key used to identify the object.
-    """
-    key: ArticleComparison_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: ArticleComparison_FirstRow
-
-    """
-    Data object containing fields to be updated.
-    """
-    data: ArticleComparison_Data!
-  ): ArticleComparison_KeyOutput @fdc_generated(from: "ArticleComparison", purpose: UPDATE_SINGLE)
-  """
-  ✨ Update a single `FactSet` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
-  """
-  factSet_update(
     """
     The key used to identify the object.
     """
@@ -315,25 +274,6 @@ extend type Mutation {
     data: Article_Data!
   ): Int! @fdc_generated(from: "Article", purpose: UPDATE_MULTIPLE)
   """
-  ✨ Update `ArticleComparison` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
-  """
-  articleComparison_updateMany(
-    """
-    Filter condition to specify which rows to update.
-    """
-    where: ArticleComparison_Filter
-
-    """
-    Set to true to update all rows.
-    """
-    all: Boolean = false
-
-    """
-    Data object containing fields to update.
-    """
-    data: ArticleComparison_Data!
-  ): Int! @fdc_generated(from: "ArticleComparison", purpose: UPDATE_MULTIPLE)
-  """
   ✨ Update `FactSet` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
   factSet_updateMany(
@@ -414,6 +354,11 @@ extend type Mutation {
   """
   article_delete(
     """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
     The key used to identify the object.
     """
     key: Article_Key
@@ -424,28 +369,14 @@ extend type Mutation {
     first: Article_FirstRow
   ): Article_KeyOutput @fdc_generated(from: "Article", purpose: DELETE_SINGLE)
   """
-  ✨ Delete a single `ArticleComparison` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  ✨ Delete a single `FactSet` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
-  articleComparison_delete(
+  factSet_delete(
     """
     The unique ID of the object.
     """
     id: UUID
 
-    """
-    The key used to identify the object.
-    """
-    key: ArticleComparison_Key
-
-    """
-    Fetch the first row based on the filters and ordering.
-    """
-    first: ArticleComparison_FirstRow
-  ): ArticleComparison_KeyOutput @fdc_generated(from: "ArticleComparison", purpose: DELETE_SINGLE)
-  """
-  ✨ Delete a single `FactSet` based on `id`, `key` or `first` and return its key (or `null` if not found).
-  """
-  factSet_delete(
     """
     The key used to identify the object.
     """
@@ -527,20 +458,6 @@ extend type Mutation {
     """
     all: Boolean = false
   ): Int! @fdc_generated(from: "Article", purpose: DELETE_MULTIPLE)
-  """
-  ✨ Delete `ArticleComparison` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
-  """
-  articleComparison_deleteMany(
-    """
-    Filter condition to specify which rows to delete.
-    """
-    where: ArticleComparison_Filter
-
-    """
-    Set to true to delete all rows.
-    """
-    all: Boolean = false
-  ): Int! @fdc_generated(from: "ArticleComparison", purpose: DELETE_MULTIPLE)
   """
   ✨ Delete `FactSet` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """

@@ -1,5 +1,6 @@
 # Users
-type User @table {
+type User
+  @table(name: "Users", singular: "user", plural: "users", key: ["id"]) {
   id: UUID! @col(name: "user_id") @default(expr: "uuidV4()")
   auth: String @col(name: "user_auth") @default(expr: "auth.uid")
   email: String!
@@ -7,33 +8,56 @@ type User @table {
   isVerifiedJournalist: Boolean! @default(value: false)
 }
 
-type StoryStatus @table {
+type StoryStatus
+  @table(
+    name: "StoryStatuses"
+    singular: "storyStatus"
+    plural: "storyStatuses"
+    key: ["id"]
+  ) {
+  id: UUID! @col(name: "story_status_id") @default(expr: "uuidV4()")
   status: String!
 }
 
-# Stories
-type Story @table {
-  status: StoryStatus!
+type Story
+  @table(name: "Stories", singular: "story", plural: "stories", key: ["id"]) {
+  id: UUID! @col(name: "story_id") @default(expr: "uuidV4()")
+  storyReferenceName: String!
+  status: StoryStatus! @ref #storyStatusId
   publishedAt: Timestamp
 }
 
-type FactSet @table(name: "FactSets", key: ["story"]) {
-  story: Story!
-  coreFact: String!
+type FactSet
+  @table(
+    name: "FactSets"
+    singular: "factSet"
+    plural: "factSets"
+    key: ["id"]
+  ) {
+  id: UUID! @col(name: "fact_set_id") @default(expr: "uuidV4()")
+  story: Story! @ref #storyId
+  coreFacts: String!
 }
 
-type Article @table(name: "Articles", key: ["factSet"]) {
-  factSet: FactSet!
+type Article
+  @table(
+    name: "Articles"
+    singular: "article"
+    plural: "articles"
+    key: ["id"]
+  ) {
+  id: UUID! @col(name: "article_id") @default(expr: "uuidV4()")
+  factSet: FactSet! @ref #factSetId
   generatedContent: String!
   reviewedContent: String
   hasBeenReviewed: Boolean! @default(value: false)
   isLive: Boolean! @default(value: false)
 }
 
-type ArticleComparison @table {
-  articleA: Article!
-  articleB: Article!
-  articleAUniqueShareCount: Int! @default(value: 0)
-  articleBUniqueShareCount: Int! @default(value: 0)
-  countThreshold: Int! @default(value: 25)
-}
+# type ArticleComparison @table(key: ["articleA", "articleB"]) {
+#   articleA: Article!
+#   articleB: Article!
+#   articleAUniqueShareCount: Int! @default(value: 0)
+#   articleBUniqueShareCount: Int! @default(value: 0)
+#   countThreshold: Int! @default(value: 25)
+# }
