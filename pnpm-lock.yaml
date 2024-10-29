@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@firebasegen/default-connector':
-        specifier: file:dataconnect-generated/js/default-connector
-        version: file:dataconnect-generated/js/default-connector(firebase@11.0.0)
       '@nextui-org/accordion':
         specifier: ^2.0.40
         version: 2.0.40(@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.14))(framer-motion@11.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@nextui-org/theme@2.2.11(tailwindcss@3.4.14))(framer-motion@11.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -594,12 +591,6 @@ packages:
 
   '@firebase/webchannel-wrapper@1.0.2':
     resolution: {integrity: sha512-3F4iA2E+NtdMbOU0XC1cHE8q6MqpGIKRj62oGOF38S6AAx5VHR9cXmoDUSj7ejvTAT7m6jxuEeQkHeq0F+mU2w==}
-
-  '@firebasegen/default-connector@file:dataconnect-generated/js/default-connector':
-    resolution: {directory: dataconnect-generated/js/default-connector, type: directory}
-    engines: {node: ' >=18.0'}
-    peerDependencies:
-      firebase: ^10.14.0
 
   '@formatjs/ecma402-abstract@2.2.0':
     resolution: {integrity: sha512-IpM+ev1E4QLtstniOE29W1rqH9eTdx5hQdNL8pzrflMj/gogfaoONZqL83LUeQScHAvyMbpqP5C9MzNf+fFwhQ==}
@@ -4116,10 +4107,6 @@ snapshots:
       tslib: 2.8.0
 
   '@firebase/webchannel-wrapper@1.0.2': {}
-
-  '@firebasegen/default-connector@file:dataconnect-generated/js/default-connector(firebase@11.0.0)':
-    dependencies:
-      firebase: 11.0.0
 
   '@formatjs/ecma402-abstract@2.2.0':
     dependencies:
