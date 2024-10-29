@@ -2,7 +2,7 @@ import { getDataConnect, queryRef, executeQuery, validateArgs } from 'firebase/d
 
 export const connectorConfig = {
   connector: 'default',
-  service: 'rival-news',
+  service: 'rival-news-prd',
   location: 'us-central1'
 };
 

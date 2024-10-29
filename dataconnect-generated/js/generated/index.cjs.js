@@ -2,7 +2,7 @@ const { getDataConnect, queryRef, executeQuery, validateArgs } = require('fireba
 
 const connectorConfig = {
   connector: 'default',
-  service: 'rival-news',
+  service: 'rival-news-prd',
   location: 'us-central1'
 };
 exports.connectorConfig = connectorConfig;

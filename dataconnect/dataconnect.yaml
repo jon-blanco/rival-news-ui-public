@@ -1,12 +1,12 @@
 specVersion: "v1beta"
-serviceId: "rival-news"
+serviceId: "rival-news-prd"
 location: "us-central1"
 schema:
   source: "./schema"
   datasource:
     postgresql:
-      database: "fdcdb"
+      database: "rival-news-prd"
       cloudSql:
-        instanceId: "rival-news-fdc"
+        instanceId: "rival-news-prd-sql"
       # schemaValidation: "COMPATIBLE"
 connectorDirs: ["./connector"]
